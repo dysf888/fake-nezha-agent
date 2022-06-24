@@ -8,9 +8,8 @@
   <br>
   <p>:trollface:帮助你在哪吒探针中快速装逼,拥有整个地球的算力! 改自 naiba/nezha</b></p>
 </div>
-\>> Telegram Group: [Nezha Monitoring Global (English Only)](https://t.me/nezhamonitoring_global), [哪吒监控（中文群组）](https://t.me/nezhamonitoring)
-\>> QQ 交流群：872069346 **加群要求：已搭建好哪吒监控 & 有 2+ 服务器， 机器人自动审核**
 ## User Guide
+
 fake-nezha-agent -s  -p  -x  -y  -z  -m 
 -m	MemoryMultiplier         int    //内存倍率
 -z	DiskMultiplier           int    //磁盘倍率
