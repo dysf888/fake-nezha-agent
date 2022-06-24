@@ -1,5 +1,5 @@
 [Unit]
-Description=Nezha Agent
+Description=Fake Nezha Agent
 After=syslog.target
 #After=network.target
 #After=nezha-dashboard.service
@@ -14,8 +14,8 @@ After=syslog.target
 Type=simple
 User=root
 Group=root
-WorkingDirectory=/opt/nezha/agent/
-ExecStart=/opt/nezha/agent/nezha-agent -s nz_grpc_host:nz_grpc_port -p nz_client_secret
+WorkingDirectory=/opt/nezha/fakeagent/
+ExecStart=/opt/nezha/fakeagent/fake-nezha-agent -s nz_grpc_host:nz_grpc_port -p nz_client_secret -m nz_mm -x nz_ntm -y nz_nsm -z nz_dm
 Restart=always
 #Environment=DEBUG=true
 
