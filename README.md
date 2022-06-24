@@ -8,12 +8,17 @@
   <br>
   <p>:trollface:帮助你在哪吒探针中快速装逼,拥有整个地球的算力! 改自 naiba/nezha</b></p>
 </div>
-## User Guide
+
+## Usage
 
 fake-nezha-agent -s  -p  -x  -y  -z  -m 
+
 -m	MemoryMultiplier         int    //内存倍率
+
 -z	DiskMultiplier           int    //磁盘倍率
+
 -x	NetworkTrafficMultiplier int    //流量倍率
+
 -y	NetworkSpeedMultiplier   int    //网速倍率
 
 ## Special Thanks
