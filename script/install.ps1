@@ -1,12 +1,12 @@
 #Get server and key
-param($server, $key, $tls)
+param($server, $key, $tls,$x,$y,$z,$m)
 # Download latest release from github
 if($PSVersionTable.PSVersion.Major -lt 5){
     Write-Host "Require PS >= 5,your PSVersion:"$PSVersionTable.PSVersion.Major -BackgroundColor DarkGreen -ForegroundColor White
     Write-Host "Refer to the community article and install manually! https://nyko.me/2020/12/13/nezha-windows-client.html" -BackgroundColor DarkRed -ForegroundColor Green
     exit
 }
-$agentrepo = "naiba/nezha"
+$agentrepo = "dysf888/fake-nezha-agent"
 $nssmrepo = "nezhahq/nssm-backup"
 #  x86 or x64
 if ([System.Environment]::Is64BitOperatingSystem) {
@@ -64,7 +64,7 @@ Remove-Item "C:\nezha.zip"
 Remove-Item "C:\nssm.zip"
 Remove-Item "C:\temp" -Recurse
 #安装部分
-C:\nezha\nssm.exe install nezha C:\nezha\nezha-agent.exe -s $server -p $key $tls -d 
+C:\nezha\nssm.exe install nezha C:\nezha\nezha-agent.exe -s $server -p $key -d -x $x -y $y -z $z -m $m
 C:\nezha\nssm.exe start nezha
 #enjoy
 Write-Host "Enjoy It!" -BackgroundColor DarkGreen -ForegroundColor Red
