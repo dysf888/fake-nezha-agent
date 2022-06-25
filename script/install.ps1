@@ -10,15 +10,15 @@ $agentrepo = "dysf888/fake-nezha-agent"
 $nssmrepo = "nezhahq/nssm-backup"
 #  x86 or x64
 if ([System.Environment]::Is64BitOperatingSystem) {
-    $file = "nezha-agent_windows_amd64.zip"
+    $file = "fake-nezha-agent_windows_amd64.zip"
 }
 else {
-    $file = "nezha-agent_windows_386.zip"
+    $file = "fake-nezha-agent_windows_386.zip"
 }
 $agentreleases = "https://api.github.com/repos/$agentrepo/releases"
 $nssmreleases = "https://api.github.com/repos/$nssmrepo/releases"
 #重复运行自动更新
-if (Test-Path "C:\nezha") {
+if (Test-Path "C:\fake-nezha-agent") {
     Write-Host "Nezha monitoring already exists, delete and reinstall" -BackgroundColor DarkGreen -ForegroundColor White
     C:/nezha/nssm.exe stop nezha
     C:/nezha/nssm.exe remove nezha
@@ -44,20 +44,20 @@ Write-Host "Location:CN,use mirror address" -BackgroundColor DarkRed -Foreground
 }
 echo $download
 echo $nssmdownload
-Invoke-WebRequest $download -OutFile "C:\nezha.zip"
+Invoke-WebRequest $download -OutFile "C:\fake-nezha-agent.zip"
 #使用nssm安装服务
 Invoke-WebRequest $nssmdownload -OutFile "C:\nssm.zip"
 #解压
-Expand-Archive "C:\nezha.zip" -DestinationPath "C:\temp" -Force
+Expand-Archive "C:\fake-nezha-agent.zip" -DestinationPath "C:\temp" -Force
 Expand-Archive "C:\nssm.zip" -DestinationPath "C:\temp" -Force
 if (!(Test-Path "C:\nezha")) { New-Item -Path "C:\nezha" -type directory }
 #整理文件
-Move-Item -Path "C:\temp\nezha-agent.exe" -Destination "C:\nezha\nezha-agent.exe"
+Move-Item -Path "C:\temp\fake-nezha-agent.exe" -Destination "C:\fake-nezha-agent\fake-nezha-agent.exe"
 if ($file = "nezha-agent_windows_amd64.zip") {
-    Move-Item -Path "C:\temp\nssm-2.24\win64\nssm.exe" -Destination "C:\nezha\nssm.exe"
+    Move-Item -Path "C:\temp\nssm-2.24\win64\nssm.exe" -Destination "C:\fake-nezha-agent\nssm.exe"
 }
 else {
-    Move-Item -Path "C:\temp\nssm-2.24\win32\nssm.exe" -Destination "C:\nezha\nssm.exe"
+    Move-Item -Path "C:\temp\nssm-2.24\win32\nssm.exe" -Destination "C:\fake-nezha-agent\nssm.exe"
 }
 #清理垃圾
 Remove-Item "C:\nezha.zip"
