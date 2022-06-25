@@ -20,8 +20,8 @@ $nssmreleases = "https://api.github.com/repos/$nssmrepo/releases"
 #重复运行自动更新
 if (Test-Path "C:\fake-nezha-agent") {
     Write-Host "Nezha monitoring already exists, delete and reinstall" -BackgroundColor DarkGreen -ForegroundColor White
-    C:/nezha/nssm.exe stop fake-nezha-agent
-    C:/nezha/nssm.exe remove fake-nezha-agent
+    C:/fake-nezha-agent/nssm.exe stop fake-nezha-agent
+    C:/fake-nezha-agent/nssm.exe remove fake-nezha-agent
     Remove-Item "C:\fake-nezha-agent" -Recurse
 }
 #TLS/SSL
