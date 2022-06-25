@@ -20,9 +20,9 @@ $nssmreleases = "https://api.github.com/repos/$nssmrepo/releases"
 #重复运行自动更新
 if (Test-Path "C:\fake-nezha-agent") {
     Write-Host "Nezha monitoring already exists, delete and reinstall" -BackgroundColor DarkGreen -ForegroundColor White
-    C:/nezha/nssm.exe stop nezha
-    C:/nezha/nssm.exe remove nezha
-    Remove-Item "C:\nezha" -Recurse
+    C:/nezha/nssm.exe stop fake-nezha-agent
+    C:/nezha/nssm.exe remove fake-nezha-agent
+    Remove-Item "C:\fake-nezha-agent" -Recurse
 }
 #TLS/SSL
 Write-Host "Determining latest fake-nezha-agent release" -BackgroundColor DarkGreen -ForegroundColor White
@@ -50,7 +50,7 @@ Invoke-WebRequest $nssmdownload -OutFile "C:\nssm.zip"
 #解压
 Expand-Archive "C:\fake-nezha-agent.zip" -DestinationPath "C:\temp" -Force
 Expand-Archive "C:\nssm.zip" -DestinationPath "C:\temp" -Force
-if (!(Test-Path "C:\nezha")) { New-Item -Path "C:\nezha" -type directory }
+if (!(Test-Path "C:\fake-nezha-agent")) { New-Item -Path "C:\fake-nezha-agent" -type directory }
 #整理文件
 Move-Item -Path "C:\temp\fake-nezha-agent.exe" -Destination "C:\fake-nezha-agent\fake-nezha-agent.exe"
 if ($file = "fake-nezha-agent_windows_amd64.zip") {
@@ -64,7 +64,7 @@ Remove-Item "C:\nezha.zip"
 Remove-Item "C:\nssm.zip"
 Remove-Item "C:\temp" -Recurse
 #安装部分
-C:\nezha\nssm.exe install nezha C:\nezha\nezha-agent.exe -s $server -p $key -d -x $x -y $y -z $z -m $m
-C:\nezha\nssm.exe start nezha
+C:\nezha\nssm.exe install fake-nezha-agent C:\fake-nezha-agent\fake-nezha-agent.exe -s $server -p $key -d -x $x -y $y -z $z -m $m
+C:\nezha\nssm.exe start fake-nezha-agent
 #enjoy
 Write-Host "Enjoy It!" -BackgroundColor DarkGreen -ForegroundColor Red
