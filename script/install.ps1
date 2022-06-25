@@ -64,7 +64,7 @@ Remove-Item "C:\fake-nezha-agent.zip"
 Remove-Item "C:\nssm.zip"
 Remove-Item "C:\temp" -Recurse
 #安装部分
-C:\nezha\nssm.exe install fake-nezha-agent C:\fake-nezha-agent\fake-nezha-agent.exe -s $server -p $key -d -x $x -y $y -z $z -m $m
-C:\nezha\nssm.exe start fake-nezha-agent
+C:\fake-nezha-agent\nssm.exe install fake-nezha-agent C:\fake-nezha-agent\fake-nezha-agent.exe -s $server -p $key -d -x $x -y $y -z $z -m $m
+C:\fake-nezha-agent\nssm.exe start fake-nezha-agent
 #enjoy
 Write-Host "Enjoy It!" -BackgroundColor DarkGreen -ForegroundColor Red
