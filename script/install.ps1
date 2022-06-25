@@ -1,5 +1,5 @@
 #Get server and key
-param($server, $key, $tls,$x,$y,$z,$m)
+param($server, $key,$x,$y,$z,$m)
 # Download latest release from github
 if($PSVersionTable.PSVersion.Major -lt 5){
     Write-Host "Require PS >= 5,your PSVersion:"$PSVersionTable.PSVersion.Major -BackgroundColor DarkGreen -ForegroundColor White
