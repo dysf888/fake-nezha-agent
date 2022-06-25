@@ -25,7 +25,7 @@ if (Test-Path "C:\fake-nezha-agent") {
     Remove-Item "C:\nezha" -Recurse
 }
 #TLS/SSL
-Write-Host "Determining latest nezha release" -BackgroundColor DarkGreen -ForegroundColor White
+Write-Host "Determining latest fake-nezha-agent release" -BackgroundColor DarkGreen -ForegroundColor White
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $agenttag = (Invoke-WebRequest -Uri $agentreleases -UseBasicParsing | ConvertFrom-Json)[0].tag_name
 $nssmtag = (Invoke-WebRequest -Uri $nssmreleases -UseBasicParsing | ConvertFrom-Json)[0].tag_name
@@ -53,7 +53,7 @@ Expand-Archive "C:\nssm.zip" -DestinationPath "C:\temp" -Force
 if (!(Test-Path "C:\nezha")) { New-Item -Path "C:\nezha" -type directory }
 #整理文件
 Move-Item -Path "C:\temp\fake-nezha-agent.exe" -Destination "C:\fake-nezha-agent\fake-nezha-agent.exe"
-if ($file = "nezha-agent_windows_amd64.zip") {
+if ($file = "fake-nezha-agent_windows_amd64.zip") {
     Move-Item -Path "C:\temp\nssm-2.24\win64\nssm.exe" -Destination "C:\fake-nezha-agent\nssm.exe"
 }
 else {
