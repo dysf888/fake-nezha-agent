@@ -60,7 +60,7 @@ else {
     Move-Item -Path "C:\temp\nssm-2.24\win32\nssm.exe" -Destination "C:\fake-nezha-agent\nssm.exe"
 }
 #清理垃圾
-Remove-Item "C:\nezha.zip"
+Remove-Item "C:\fake-nezha-agent.zip"
 Remove-Item "C:\nssm.zip"
 Remove-Item "C:\temp" -Recurse
 #安装部分
